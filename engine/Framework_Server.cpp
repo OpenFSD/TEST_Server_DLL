@@ -23,25 +23,23 @@ namespace Server_Library
 		ptr_HostServer->Get_Execute()->Initialise_Threads();
 	}
 
-	void Framework_Server::Pop_Stack_OutputPraise(
-		Server_Library::Output* ptr_Buffer_Output_Transmit,
-		std::vector<class Server_Library::Output*>* ptr_Stack_OutputPraise
-	)
+	void Framework_Server::Pop_Stack_OutputPraise()
 	{
+		Server_Library::Output* ptr_Buffer_Back_Output = Server_Library::Framework_Server::Get_HostServer()->Get_Data()->GetBuffer_OutputBackDouble();
+		std::vector<class Server_Library::Output*>* ptr_Stack_OutputPraise = Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_OutputPraise();
 		Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->Pop_Stack_OutputPraise(
-			ptr_Buffer_Output_Transmit,
+			ptr_Buffer_Back_Output,
 			ptr_Stack_OutputPraise
 		);
 	}
 
-	void Framework_Server::Push_Stack_InputPraise(
-		std::vector<class Server_Library::Input*>* ptr_Stack_InputPraise,
-		Server_Library::Input* ptr_Buffer_Input
-	)
+	void Framework_Server::Push_Stack_InputPraise()
 	{
+		std::vector<class Server_Library::Input*>* ptr_Stack_InputPraise = Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_InputPraise();
+		Server_Library::Input* ptr_Buffer_Back_Input = Server_Library::Framework_Server::Get_HostServer()->Get_Data()->GetBuffer_InputBackDouble();
 		Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->Push_Stack_InputPraise(
 			ptr_Stack_InputPraise,
-			ptr_Buffer_Input
+			ptr_Buffer_Back_Input
 		);
 	}
 

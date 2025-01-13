@@ -32,52 +32,13 @@ namespace Server_Library
         {
             case true://in
             {
-                Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Write_Start(
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Get_WriteEnable_Control(),
-                    coreId,
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Get_GlobalForWriteControl()
-                );
-
-                Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Flip_Input_DoubleBuffer();
-
-                Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->PushToStackOfInputPraises(
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_InputPraise(),
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Data()->GetBuffer_InputBackDouble()
-                );
-                // pop from inputpraise stack
-            //put object on next concurrent thread or wait for it
-
-
-
-
-
-
-
-
-
-
-
-
-
-                Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->SetFlag_InputStackLoaded(true);
-
-                while (Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_Control_Of_LaunchConcurrency()->GetFlag_ConcurrentCoreState(
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_Control_Of_LaunchConcurrency()->Get_coreId_To_Launch()) == Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_GlobalForLaunchConcurrency()->GetConst_Core_ACTIVE()
-                    ) {/* wait untill a core is free */
-                }
-
+            //for loop stack size
                 Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Concurrent_Thread_Start(
                     Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_Control_Of_LaunchConcurrency(),
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_Control_Of_LaunchConcurrency()->Get_coreId_To_Launch(),
+                    coreId,
                     Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_GlobalForLaunchConcurrency()
                 );
-
-                Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Write_End(
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Get_WriteEnable_Control(),
-                    coreId,
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Get_GlobalForWriteControl()
-                );
-
+            //end loop
                 Server_Library::Framework_Server::Get_HostServer()->Get_Algorithms()->Get_ListenRespond()->Get_ListenRespond_Control()->SetFlag_IO_ThreadState(false);//DISTRIBUTE=FALSE
                 break;
             }
@@ -91,23 +52,8 @@ namespace Server_Library
                         Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_OutputPraise()->Get_GlobalForWriteControl()
                     );
 
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->PopFromStackOfOutput(
-                        Server_Library::Framework_Server::Get_HostServer()->Get_Data()->GetBuffer_OutputBackDouble(),
-                        Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_OutputPraise()
-                    );
-                    if (sizeof(Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_OutputPraise()) < 1)
-                    {
-                        Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->SetFlag_OutputStackLoaded(false);
-                    }
-                    else
-                    {
-                        Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->SetFlag_OutputStackLoaded(true);
-                    }
-                    //TODO> Server_Library::Framework_Server::Get_HostServer() distribute networking
-                    /*
-                    *  send registers in distribute buffer
-                    *  set ACK distribute sent to equal TRUE
-                    */
+                    //TODO
+
                     Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_OutputPraise()->Write_End(
                         Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_OutputPraise()->Get_WriteEnable_Control(),
                         coreId,
