@@ -2,35 +2,23 @@
 
 namespace Server_Library
 {
-    bool ListenRespond_Control::flag_Ack_InputAction_Capture = false;
-    bool ListenRespond_Control::flag_IO_ThreadState = false;
+    bool ListenRespond_Control::state_IO_Thread = false;
 
     ListenRespond_Control::ListenRespond_Control()
     {
-        flag_IO_ThreadState = new bool(true);
+        state_IO_Thread = new bool(true);
     }
     ListenRespond_Control::~ListenRespond_Control()
     {
 
     }
-
-    bool ListenRespond_Control::GetFlag_Acknowledge_Input_Capture()
+    bool ListenRespond_Control::Get_State_IO_Thread()
     {
-        return flag_Ack_InputAction_Capture;
-    }
-
-    bool ListenRespond_Control::GetFlag_IO_ThreadState()
-    {
-        return flag_IO_ThreadState;
-    }
-
-    void ListenRespond_Control::SetFlag_Acknowledge_Input_Capture(bool value)
-    {
-        flag_Ack_InputAction_Capture = value;
+        return state_IO_Thread;
     }
 
     void ListenRespond_Control::SetFlag_IO_ThreadState(bool value)
     {
-        flag_IO_ThreadState = value;
+        state_IO_Thread = value;
     }
 }

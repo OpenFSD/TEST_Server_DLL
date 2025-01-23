@@ -6,6 +6,7 @@
 #include "Output.h"
 #include "user_praise_files\\Praise0_Input.h"
 #include "user_praise_files\\Praise0_Output.h"
+#include "..\\include\\write_enable\\Framework_WriteEnable.h"
 
 namespace Server_Library
 {
@@ -15,16 +16,18 @@ namespace Server_Library
         Framework_Server();
         virtual ~Framework_Server();
 
-        static void CreateHostingServer();
+        static void Create_Hosting_Server();
         static void Pop_Stack_OutputPraise();
         static void Push_Stack_InputPraise();
 
-        static bool Get_Ack_InputAction_Capture();
-        static class Server_Library::Server* Get_HostServer();
+        static __int16 Get_coreId_To_Launch();
+        static class Server* Get_HostServer();
+        static int Get_Length_Stack_Server_InputPraise();
+
         static unsigned char Get_NumberOfCores();
         static bool GetState_Buffer_Input_ToWrite();
-        static class WaitEnableWrite::WriteEnable* Get_WriteEnable_Stack_InputPraise();
-        static class WaitEnableWrite::WriteEnable* Get_WriteEnable_Stack_OutputPraise();
+        static class WaitEnableWrite::Framework_WriteEnable* Get_WriteEnable_Stack_Server_InputPraise();
+        static class WaitEnableWrite::Framework_WriteEnable* Get_WriteEnable_Stack_Server_OutputPraise();
         
         static void Set_Ack_InputAction_Capture(bool value);
 

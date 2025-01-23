@@ -32,20 +32,22 @@ namespace Server_Library
         {
             // wait untill thread initalised
         }
-        if (Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_Control_Of_LaunchConcurrency()->GetFlag_ConcurrentCoreState(concurrent_coreId) == Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_GlobalForLaunchConcurrency()->GetConst_Core_ACTIVE())
+        while (Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_Execute_Control()->GetFlag_SystemInitialised(number_Implemented_Cores) == false)
+        {
+            
+        }
+        if (Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_LaunchConcurrency()->Get_Control_Of_LaunchConcurrency()->Get_State_ConcurrentCore(concurrent_coreId) 
+            == Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_LaunchConcurrency()->Get_GlobalForLaunchConcurrency()->GetConst_Core_ACTIVE())
         {
             if (Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->GetFlag_InputStackLoaded() == true)
             {
-                Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Write_Start(
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Get_WriteEnable_Control(),
-                    concurrent_coreId,
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Get_GlobalForWriteControl()
-                );
-                Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->Pop_Stack_InputPraise(
+                Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_Server_InputPraise()->Write_Start(concurrent_coreId);
+
+                Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->Pop_Stack_Server_InputPraise(
                     Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_InputRefferenceOfCore(concurrent_coreId),
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_InputPraise()
+                    Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_Server_InputPraise()
                 );
-                if (sizeof(Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_InputPraise()) <= 1)
+                if (sizeof(Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_Server_InputPraise()) <= 1)
                 {
                     Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->SetFlag_InputStackLoaded(false);
                 }
@@ -64,11 +66,7 @@ namespace Server_Library
                     concurrent_coreId
                 );
 
-                 Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Write_End(
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Get_WriteEnable_Control(),
-                    concurrent_coreId,
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_InputPraise()->Get_GlobalForWriteControl()
-                );
+                 Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_Server_InputPraise()->Write_End(concurrent_coreId);
 
                 Server_Library::Framework_Server::Get_HostServer()->Get_Algorithms()->Get_Concurren_Array(int(concurrent_coreId))->Do_Concurrent_Algorithm_For_PraiseEventId(
                     Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_InputRefferenceOfCore(int(concurrent_coreId))->GetPraiseEventId(),
@@ -76,16 +74,14 @@ namespace Server_Library
                     Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_InputRefferenceOfCore(int(concurrent_coreId))->Get_InputBufferSubset(),
                     Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_OutputRefferenceOfCore(int(concurrent_coreId))->Get_OutputBuffer_Subset()
                 );
-                Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_OutputPraise()->Write_Start(
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_OutputPraise()->Get_WriteEnable_Control(),
-                    concurrent_coreId,
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_OutputPraise()->Get_GlobalForWriteControl()
-                );
-                Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->Push_Stack_OutputPraise(
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_OutputPraise(),
+
+                Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_Server_OutputPraise()->Write_Start(concurrent_coreId);
+
+                Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->Push_Stack_Server_OutputPraise(
+                    Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_Server_OutputPraise(),
                     Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_OutputRefferenceOfCore(concurrent_coreId)
                 );
-                if (sizeof(Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_InputPraise()) < 1)
+                if (sizeof(Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Stack_Server_InputPraise()) < 1)
                 {
                     Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->SetFlag_InputStackLoaded(false);
                 }
@@ -93,16 +89,8 @@ namespace Server_Library
                 {
                     Server_Library::Framework_Server::Get_HostServer()->Get_Data()->Get_Data_Control()->SetFlag_InputStackLoaded(true);
                 }
-                Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Thread_End(
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_Control_Of_LaunchConcurrency(),
-                    concurrent_coreId,
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_GlobalForLaunchConcurrency()
-                );
-                Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_OutputPraise()->Write_End(
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_OutputPraise()->Get_WriteEnable_Control(),
-                    concurrent_coreId,
-                    Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_OutputPraise()->Get_GlobalForWriteControl()
-                );
+                Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_LaunchConcurrency_ServerSide()->Get_LaunchConcurrency()->Thread_End(concurrent_coreId);
+                Server_Library::Framework_Server::Get_HostServer()->Get_Execute()->Get_WriteEnable_Stack_Server_OutputPraise()->Write_End(concurrent_coreId);
             }
         }
     }

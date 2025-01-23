@@ -12,8 +12,8 @@ namespace Server_Library
     class Output* Data::ptr_Buffer_OututDouble[2] = { NULL, NULL };
     class Output* Data::ptr_Buffer_OutputReference_ForCore[3] = { NULL, NULL, NULL };//NUMBER OF CONCURRENT CORES
     class Data_Control* Data::ptr_Data_Control = NULL;
-    std::vector<class Input*>* Data::ptr_Stack_InputPraise = NULL;
-    std::vector<class Output*>* Data::ptr_Stack_OutputPraise = NULL;
+    std::vector<class Input*>* Data::ptr_Stack_Server_InputPraise = NULL;
+    std::vector<class Output*>* Data::ptr_Stack_Server_OutputPraise = NULL;
 
     //buffer sub sets
     class User_I* Data::ptr_User_I = NULL;
@@ -59,15 +59,15 @@ namespace Server_Library
         ptr_Data_Control = new Data_Control();
         while (ptr_User_I == NULL) { /* wait untill created */ }
 
-        ptr_Stack_InputPraise = new std::vector<class Server_Library::Input*>;
-        while (ptr_Stack_InputPraise == NULL) { /* wait untill created */ }
-        ptr_Stack_InputPraise->resize(1);
-        ptr_Stack_InputPraise->at(0) = ptr_EmptyBuffer_Input;
+        ptr_Stack_Server_InputPraise = new std::vector<class Server_Library::Input*>;
+        while (ptr_Stack_Server_InputPraise == NULL) { /* wait untill created */ }
+        ptr_Stack_Server_InputPraise->resize(1);
+        ptr_Stack_Server_InputPraise->at(0) = ptr_EmptyBuffer_Input;
 
-        ptr_Stack_OutputPraise = new std::vector<class Server_Library::Output*>;
-        while (ptr_Stack_OutputPraise == NULL) { /* wait untill created */ }
-        ptr_Stack_OutputPraise->resize(1);
-        ptr_Stack_OutputPraise->at(0) = ptr_EmptyBuffer_Output;
+        ptr_Stack_Server_OutputPraise = new std::vector<class Server_Library::Output*>;
+        while (ptr_Stack_Server_OutputPraise == NULL) { /* wait untill created */ }
+        ptr_Stack_Server_OutputPraise->resize(1);
+        ptr_Stack_Server_OutputPraise->at(0) = ptr_EmptyBuffer_Output;
 
         ptr_User_I = new User_I();
         while (ptr_User_I == NULL) { /* wait untill created */ }
@@ -90,8 +90,8 @@ namespace Server_Library
             delete ptr_Buffer_InputReference_ForCore[index];
             delete ptr_Buffer_OutputReference_ForCore[index];
         }
-        delete ptr_Stack_InputPraise;
-        delete ptr_Stack_OutputPraise;
+        delete ptr_Stack_Server_InputPraise;
+        delete ptr_Stack_Server_OutputPraise;
     }
 
     __int8 Data::BoolToInt(bool bufferSide)
@@ -184,14 +184,14 @@ namespace Server_Library
         return state_OutBufferToWrite;
     }
 
-    std::vector<class Server_Library::Input*>* Data::Get_Stack_InputPraise()
+    std::vector<class Server_Library::Input*>* Data::Get_Stack_Server_InputPraise()
     {
-        return ptr_Stack_InputPraise;
+        return ptr_Stack_Server_InputPraise;
     }
 
-    std::vector<class Server_Library::Output*>* Data::Get_Stack_OutputPraise()
+    std::vector<class Server_Library::Output*>* Data::Get_Stack_Server_OutputPraise()
     {
-        return ptr_Stack_OutputPraise;
+        return ptr_Stack_Server_OutputPraise;
     }
 
     class User_I* Data::Get_User_I()

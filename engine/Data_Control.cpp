@@ -15,7 +15,7 @@ namespace Server_Library
 
     }
 
-    void Data_Control::Pop_Stack_InputPraise(
+    void Data_Control::Pop_Stack_Server_InputPraise(
         Server_Library::Input* ptr_Buffer_Input_core_Reference,
         std::vector<class Server_Library::Input*>* ptr_Stack_InputPraise
     )
@@ -24,7 +24,7 @@ namespace Server_Library
         ptr_Stack_InputPraise->erase(ptr_Stack_InputPraise->begin(), ptr_Stack_InputPraise->begin());
     }
 
-    void Data_Control::Pop_Stack_OutputPraise(
+    void Data_Control::Pop_Stack_Server_OutputPraise(
         Server_Library::Output* ptr_Buffer_Output_Transmit,
         std::vector<class Server_Library::Output*>* ptr_Stack_OutputPraise
     )
@@ -33,7 +33,7 @@ namespace Server_Library
         ptr_Stack_OutputPraise->erase(ptr_Stack_OutputPraise->begin(), ptr_Stack_OutputPraise->begin());
     }
 
-    void Data_Control::Push_Stack_InputPraise(
+    void Data_Control::Push_Stack_Server_InputPraise(
         std::vector<class Server_Library::Input*>* ptr_Stack_InputPraise,
         Server_Library::Input* ptr_Buffer_Input
     )
@@ -41,7 +41,7 @@ namespace Server_Library
         ptr_Stack_InputPraise->push_back(ptr_Buffer_Input);
     }
 
-    void Data_Control::Push_Stack_OutputPraise(
+    void Data_Control::Push_Stack_Server_OutputPraise(
         std::vector<class Server_Library::Output*>* ptr_Stack_OutputPraise,
         Server_Library::Output* ptr_Buffer_Output
     )
