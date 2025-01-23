@@ -93,6 +93,30 @@
     <ClCompile Include="engine\user_praise_files\User_O.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\concurrent_que\Framework_ConcurrentQue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\concurrent_que\Global_ConcurrentQue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\concurrent_que\LaunchConcurrency.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\concurrent_que\LaunchConcurrency_Control.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\write_enable\Framework_WriteEnable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\write_enable\Global_WriteEnable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\write_enable\WriteEnable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\write_enable\WriteEnable_Control.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\WaitLaunch_Server_ConcurrentThread.dll" />
@@ -175,28 +199,28 @@
     <ClInclude Include="engine\user_praise_files\User_O.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\concurrent_que\Framework_ConcurrentQue.h">
+    <ClInclude Include="engine\concurrent_que\Framework_ConcurrentQue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\concurrent_que\Global_ConcurrentQue.h">
+    <ClInclude Include="engine\concurrent_que\Global_ConcurrentQue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\concurrent_que\LaunchConcurrency.h">
+    <ClInclude Include="engine\concurrent_que\LaunchConcurrency.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\concurrent_que\LaunchConcurrency_Control.h">
+    <ClInclude Include="engine\concurrent_que\LaunchConcurrency_Control.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\write_enable\Framework_WriteEnable.h">
+    <ClInclude Include="engine\write_enable\Framework_WriteEnable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\write_enable\Global_WriteEnable.h">
+    <ClInclude Include="engine\write_enable\Global_WriteEnable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\write_enable\WriteEnable.h">
+    <ClInclude Include="engine\write_enable\WriteEnable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\write_enable\WriteEnable_Control.h">
+    <ClInclude Include="engine\write_enable\WriteEnable_Control.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,6 +7,7 @@ int main()
 {
     Server_Library::Framework_Server* ptr_Framework_Server = new class Server_Library::Framework_Server();
     while (ptr_Framework_Server == NULL) { /* wait untill created */ }
+    ptr_Framework_Server->Create_Hosting_Server();
 
     std::cout << "Hello World!\n";
 }

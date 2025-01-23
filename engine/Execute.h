@@ -4,8 +4,8 @@
 #include "Execute_Control.h"
 #include "Framework_Server.h"
 #include "Global.h"
-#include "..\\include\\concurrent_que\\Framework_ConcurrentQue.h"
-#include "..\\include\\write_enable\\Framework_WriteEnable.h"
+#include "concurrent_que\\Framework_ConcurrentQue.h"
+#include "write_enable\\Framework_WriteEnable.h"
 
 namespace Server_Library
 {

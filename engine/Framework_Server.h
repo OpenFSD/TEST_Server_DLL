@@ -6,7 +6,7 @@
 #include "Output.h"
 #include "user_praise_files\\Praise0_Input.h"
 #include "user_praise_files\\Praise0_Output.h"
-#include "..\\include\\write_enable\\Framework_WriteEnable.h"
+#include "write_enable\\Framework_WriteEnable.h"
 
 namespace Server_Library
 {
@@ -28,18 +28,16 @@ namespace Server_Library
         static bool GetState_Buffer_Input_ToWrite();
         static class WaitEnableWrite::Framework_WriteEnable* Get_WriteEnable_Stack_Server_InputPraise();
         static class WaitEnableWrite::Framework_WriteEnable* Get_WriteEnable_Stack_Server_OutputPraise();
-        
-        static void Set_Ack_InputAction_Capture(bool value);
 
         static __int16 Get_PraiseEventId();
         static void Set_PraiseEventId(__int16 value);
-//===
+
         static float Get_Praise0_pitch();
         static float Get_Praise0_yaw();
         
         static void Set_Praise0_mousePos_X(__int16 value);
         static void Set_Praise0_mousePos_Y(__int16 value);
-//===
+
     protected:
 
     private:

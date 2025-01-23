@@ -130,6 +130,10 @@
     <ClCompile Include="engine\Algorithms.cpp" />
     <ClCompile Include="engine\Concurrent.cpp" />
     <ClCompile Include="engine\Concurrent_Control.cpp" />
+    <ClCompile Include="engine\concurrent_que\Framework_ConcurrentQue.cpp" />
+    <ClCompile Include="engine\concurrent_que\Global_ConcurrentQue.cpp" />
+    <ClCompile Include="engine\concurrent_que\LaunchConcurrency.cpp" />
+    <ClCompile Include="engine\concurrent_que\LaunchConcurrency_Control.cpp" />
     <ClCompile Include="engine\Data.cpp" />
     <ClCompile Include="engine\Data_Control.cpp" />
     <ClCompile Include="engine\Execute.cpp" />
@@ -152,6 +156,10 @@
     <ClCompile Include="engine\user_praise_files\User_Alg.cpp" />
     <ClCompile Include="engine\user_praise_files\User_I.cpp" />
     <ClCompile Include="engine\user_praise_files\User_O.cpp" />
+    <ClCompile Include="engine\write_enable\Framework_WriteEnable.cpp" />
+    <ClCompile Include="engine\write_enable\Global_WriteEnable.cpp" />
+    <ClCompile Include="engine\write_enable\WriteEnable.cpp" />
+    <ClCompile Include="engine\write_enable\WriteEnable_Control.cpp" />
     <ClCompile Include="TEST_Server_DLL.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +171,10 @@
     <ClInclude Include="engine\Algorithms.h" />
     <ClInclude Include="engine\Concurrent.h" />
     <ClInclude Include="engine\Concurrent_Control.h" />
+    <ClInclude Include="engine\concurrent_que\Framework_ConcurrentQue.h" />
+    <ClInclude Include="engine\concurrent_que\Global_ConcurrentQue.h" />
+    <ClInclude Include="engine\concurrent_que\LaunchConcurrency.h" />
+    <ClInclude Include="engine\concurrent_que\LaunchConcurrency_Control.h" />
     <ClInclude Include="engine\Data.h" />
     <ClInclude Include="engine\Data_Control.h" />
     <ClInclude Include="engine\Execute.h" />
@@ -185,14 +197,10 @@
     <ClInclude Include="engine\user_praise_files\User_Alg.h" />
     <ClInclude Include="engine\user_praise_files\User_I.h" />
     <ClInclude Include="engine\user_praise_files\User_O.h" />
-    <ClInclude Include="include\concurrent_que\Framework_ConcurrentQue.h" />
-    <ClInclude Include="include\concurrent_que\Global_ConcurrentQue.h" />
-    <ClInclude Include="include\concurrent_que\LaunchConcurrency.h" />
-    <ClInclude Include="include\concurrent_que\LaunchConcurrency_Control.h" />
-    <ClInclude Include="include\write_enable\Framework_WriteEnable.h" />
-    <ClInclude Include="include\write_enable\Global_WriteEnable.h" />
-    <ClInclude Include="include\write_enable\WriteEnable.h" />
-    <ClInclude Include="include\write_enable\WriteEnable_Control.h" />
+    <ClInclude Include="engine\write_enable\Framework_WriteEnable.h" />
+    <ClInclude Include="engine\write_enable\Global_WriteEnable.h" />
+    <ClInclude Include="engine\write_enable\WriteEnable.h" />
+    <ClInclude Include="engine\write_enable\WriteEnable_Control.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
